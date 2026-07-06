@@ -72,8 +72,29 @@
     variant = "";
   };
 
-  # Enable CUPS to print documents
-  services.printing.enable = true;
+  # Enable CUPS to print documents and install HP printer drivers
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplipWithPlugin ];
+  };
+
+  # Enable Avahi for network printer autodiscovery
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # Enable basic firewall
+  networking.firewall = {
+    enable = true;
+  };
+
+  # Enable 32-bit graphics libraries systemwide
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # Enable sound with pipewire
   services.pulseaudio.enable = false;
