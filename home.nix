@@ -62,8 +62,8 @@
       name = "adw-gtk3";
     };
     iconTheme = {
-      package = pkgs.flat-remix-icon-theme;
-      name = "Flat-Remix-Blue-Dark";
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
     };
   };
 
