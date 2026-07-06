@@ -31,6 +31,8 @@
     joplin
     google-chrome
     gh
+    discord
+    signal-desktop
   ];
 
   # XDG Config File Mappings
