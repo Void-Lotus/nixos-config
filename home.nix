@@ -30,6 +30,7 @@
     qt6Packages.qt6ct
     joplin
     google-chrome
+    gh
   ];
 
   # XDG Config File Mappings
