@@ -40,9 +40,14 @@
       url = "github:srinivasr/nirimod";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, chaotic, zen-browser, home-manager, noctalia, cachyos-niri-noctalia, ... }@inputs: {
+  outputs = { self, nixpkgs, chaotic, zen-browser, home-manager, noctalia, cachyos-niri-noctalia, agenix, ... }@inputs: {
     nixosConfigurations = {
       nixlotus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -54,6 +59,7 @@
           ./configuration.nix
           ./hosts/nixlotus/hardware-configuration.nix
           ./hosts/nixlotus/default.nix
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

@@ -226,6 +226,15 @@ EOF
     enable = true;
   };
 
+  # Enable the OpenSSH daemon to generate host keys (needed for Agenix)
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+  };
+
   # Enable 32-bit graphics libraries systemwide
   hardware.graphics = {
     enable = true;
@@ -344,6 +353,9 @@ EOF
 
     # NiriMod (via Flake input)
     inputs.nirimod.packages.${pkgs.system}.default
+
+    # Agenix CLI (via Flake input)
+    inputs.agenix.packages.${pkgs.system}.default
 
     # Keyring management & GUI
     seahorse
