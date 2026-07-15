@@ -33,6 +33,7 @@
     gh
     discord
     signal-desktop
+    libnotify
   ];
 
   # XDG Config File Mappings

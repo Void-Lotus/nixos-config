@@ -1,0 +1,48 @@
+================================================================================
+                          ❄️  NIXOS COMMANDS CHEATSHEET ❄️
+================================================================================
+
+1. SYSTEM REBUILD & SWITCH
+   ------------------------
+   Rebuild and apply the current configuration flake:
+   $ sudo nixos-rebuild switch --flake /home/voidlotus/nixos-config#nixlotus
+   (Or use the quick shortcut alias: rs)
+
+2. CLEANING GARBAGE & OLD GENERATIONS
+   -----------------------------------
+   Remove unused packages and old system profiles:
+   * User level:
+     $ nix-collect-garbage -d
+   * System level (requires root):
+     $ sudo nix-collect-garbage -d
+
+3. BOOTLOADER CLEANUP & UPDATE
+   ---------------------------
+   Clean up old system profiles and update systemd-boot entries:
+   $ sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot
+
+4. DE-DUPLICATE NIX STORE
+   -----------------------
+   De-duplicate and optimize storage in the Nix store:
+   $ nix-store --optimise
+
+5. CLEAN USER TRASH CAN
+   ---------------------
+   Clean local file manager Trash files:
+   $ rm -rf ~/.local/share/Trash/*
+
+6. RUN TEMPORARY SHELLS & PACKAGES
+   --------------------------------
+   * Run a temporary shell containing packages without installing them:
+     $ nix-shell -p <package_name>
+   * Run a temporary package immediately using Flakes:
+     $ nix run nixpkgs#<package_name>
+
+7. FLAKE MANAGEMENT
+   ----------------
+   * Upgrade all Flake inputs to their latest versions:
+     $ nix flake update
+
+================================================================================
+          [ Press Ctrl+Q or type ':q' to exit micro and close this window ]
+================================================================================

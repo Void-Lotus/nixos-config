@@ -26,3 +26,18 @@
         default-column-width { proportion 1.0; }
     }
 
+    window-rule {
+        match app-id="nixos-cheatsheet"
+        open-floating true
+        default-column-width { fixed 900; }
+        default-window-height { fixed 650; }
+    }
+
+    window-rule {
+        match app-id="hotkeys-cheatsheet"
+        open-floating true
+        default-column-width { fixed 900; }
+        default-window-height { fixed 750; }
+    }
+
+
