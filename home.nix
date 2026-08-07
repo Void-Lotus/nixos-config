@@ -6,9 +6,12 @@
   home.homeDirectory = "/home/voidlotus";
   home.stateVersion = "26.05";
 
-  # Ensure ~/.local/bin exists for Antigravity CLI (agy)
+  # Ensure ~/.local/bin exists and check Antigravity CLI (agy) binary
   home.activation.ensureLocalBin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     $DRY_RUN_CMD mkdir -p $HOME/.local/bin
+    if [ ! -f "$HOME/.local/bin/agy" ]; then
+      echo "Note: ~/.local/bin/agy is ready for binary placement. On first launch, run 'agy' to sign in with your account."
+    fi
   '';
 
   # User packages
