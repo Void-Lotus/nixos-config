@@ -1,10 +1,15 @@
 # User Home Manager Configuration
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "voidlotus";
   home.homeDirectory = "/home/voidlotus";
   home.stateVersion = "26.05";
+
+  # Ensure ~/.local/bin exists for Antigravity CLI (agy)
+  home.activation.ensureLocalBin = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD mkdir -p $HOME/.local/bin
+  '';
 
   # User packages
   home.packages = with pkgs; [

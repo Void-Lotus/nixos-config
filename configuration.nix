@@ -26,6 +26,13 @@ in
     trusted-users = [ "root" "voidlotus" ];
   };
 
+  # Enable ZRAM compressed swap to prevent OOM crashes during builds
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
+
   # Automatic Garbage Collection
   nix.gc = {
     automatic = true;
