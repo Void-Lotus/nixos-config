@@ -227,6 +227,12 @@ EOF
   # Custom Oh-My-Zsh Theme mapping
   home.file.".oh-my-zsh/custom/themes/agnosterzak.zsh-theme".source = ./configs/zsh-themes/agnosterzak.zsh-theme;
 
+  # Declaratively map wallpapers into ~/Pictures/wallpapers/
+  home.file."Pictures/wallpapers" = {
+    source = ./wallpapers;
+    recursive = true;
+  };
+
   # Configure GTK and Icon Themes
   gtk = {
     enable = true;
