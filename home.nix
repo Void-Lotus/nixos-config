@@ -42,18 +42,31 @@
     discord
     signal-desktop
     libnotify
+    foot
   ];
 
   # XDG Config File Mappings
   xdg.configFile = {
-    "alacritty/alacritty.toml".source = ./configs/alacritty/alacritty.toml;
+    "alacritty" = { source = ./configs/alacritty; recursive = true; };
     "btop" = { source = ./configs/btop; recursive = true; };
     "cava" = { source = ./configs/cava; recursive = true; };
-    "fastfetch".source = ./configs/fastfetch;
+    "DankMaterialShell" = { source = ./configs/DankMaterialShell; recursive = true; };
+    "fastfetch" = { source = ./configs/fastfetch; recursive = true; };
+    "foot" = { source = ./configs/foot; recursive = true; };
     "ghostty" = { source = ./configs/ghostty; recursive = true; };
+    "gtk-3.0" = { source = ./configs/gtk-3.0; recursive = true; };
+    "gtk-4.0" = { source = ./configs/gtk-4.0; recursive = true; };
+    "gtk/gtkrc".source = ./configs/gtkrc;
+    "gtk/gtkrc-2.0".source = ./configs/gtkrc-2.0;
+    "hypr" = { source = ./configs/hypr; recursive = true; };
+    "illogical-impulse" = { source = ./configs/illogical-impulse; recursive = true; };
     "kitty" = { source = ./configs/kitty; recursive = true; };
-    "niri/config.kdl".source = ./configs/niri/config.kdl;
-    "niri/cfg" = { source = ./configs/niri/cfg; recursive = true; };
+    "Kvantum" = { source = ./configs/Kvantum; recursive = true; };
+    "lxqt" = { source = ./configs/lxqt; recursive = true; };
+    "micro" = { source = ./configs/micro; recursive = true; };
+    "mimeapps.list".source = ./configs/mimeapps.list;
+    "niri" = { source = ./configs/niri; recursive = true; };
+    "nirimod" = { source = ./configs/nirimod; recursive = true; };
     "noctalia" = { source = ./configs/noctalia; recursive = true; };
     "noctalia/wallpaper_change.sh" = {
       executable = true;
@@ -217,11 +230,21 @@ EOF
         echo "SDDM wallpaper and colors successfully updated."
       '';
     };
+    "pavucontrol.ini".source = ./configs/pavucontrol.ini;
     "qt5ct" = { source = ./configs/qt5ct; recursive = true; };
     "qt6ct" = { source = ./configs/qt6ct; recursive = true; };
+    "QtProject.conf".source = ./configs/QtProject.conf;
     "rofi" = { source = ./configs/rofi; recursive = true; };
     "spicetify" = { source = ./configs/spicetify; recursive = true; };
+    "starship.toml".source = ./configs/starship.toml;
+    "swaync" = { source = ./configs/swaync; recursive = true; };
+    "Trolltech.conf".source = ./configs/Trolltech.conf;
+    "voidshell" = { source = ./configs/voidshell; recursive = true; };
     "wallust" = { source = ./configs/wallust; recursive = true; };
+    "waybar" = { source = ./configs/waybar; recursive = true; };
+    "wf-shell" = { source = ./configs/wf-shell; recursive = true; };
+    "xfce4" = { source = ./configs/xfce4; recursive = true; };
+    "xsettingsd" = { source = ./configs/xsettingsd; recursive = true; };
   };
 
   # Custom Oh-My-Zsh Theme mapping
@@ -309,5 +332,19 @@ EOF
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  # Declarative Git Configuration
+  programs.git = {
+    enable = true;
+    userName = "Void-Lotus";
+    userEmail = "hello.voidlotus@pm.me";
+  };
+
+  # Declarative Starship Configuration
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
   };
 }
