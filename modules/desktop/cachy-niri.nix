@@ -32,6 +32,7 @@
   environment.systemPackages = with pkgs; [
     # Compositor & Shell
     xwayland-satellite
+    nwg-displays
 
     # Theming Base
     adw-gtk3
