@@ -270,7 +270,7 @@ EOF
       la = "ls -a";
       lla = "ls -la";
       lt = "ls --tree";
-      rs = "sudo nixos-rebuild switch --no-reexec --flake /home/voidlotus/nixos-config#nixlotus";
+      rs = "sudo nixos-rebuild switch --no-reexec --accept-flake-config --flake /home/voidlotus/nixos-config#nixlotus";
     };
 
     history = {
